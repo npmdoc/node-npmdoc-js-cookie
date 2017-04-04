@@ -1,29 +1,29 @@
 <svg height="414" width="720" xmlns="http://www.w3.org/2000/svg">
 <rect height="414" fill="#555" width="720"></rect>
 <text fill="#7f7" font-family="Courier New" font-size="12" xml:space="preserve">
-<tspan x="10" y="26">  0.  2017-04-04 08:19:44 +0000    86024 byte  .</tspan>
-<tspan x="10" y="42">  1.  2017-04-04 08:19:44 +0000     3750 byte  CONTRIBUTING.md</tspan>
-<tspan x="10" y="58">  2.  2017-04-04 08:19:44 +0000     5934 byte  Gruntfile.js</tspan>
-<tspan x="10" y="74">  3.  2017-04-04 08:19:44 +0000     1051 byte  MIT-LICENSE.txt</tspan>
-<tspan x="10" y="90">  4.  2017-04-04 08:19:44 +0000    11080 byte  README.md</tspan>
-<tspan x="10" y="106">  5.  2017-04-04 08:19:44 +0000     5304 byte  SERVER_SIDE.md</tspan>
-<tspan x="10" y="122">  6.  2017-04-04 08:19:44 +0000      270 byte  bower.json</tspan>
-<tspan x="10" y="138">  7.  2017-04-04 08:19:44 +0000     2826 byte  package.json</tspan>
-<tspan x="10" y="154">  8.  2017-04-04 08:19:44 +0000     3872 byte  src/js.cookie.js</tspan>
-<tspan x="10" y="170">  9.  2017-04-04 08:19:44 +0000      116 byte  test/amd-config.js</tspan>
-<tspan x="10" y="186"> 10.  2017-04-04 08:19:44 +0000      409 byte  test/amd.html</tspan>
-<tspan x="10" y="202"> 11.  2017-04-04 08:19:44 +0000      309 byte  test/amd.js</tspan>
-<tspan x="10" y="218"> 12.  2017-04-04 08:19:44 +0000      506 byte  test/encoding.html</tspan>
-<tspan x="10" y="234"> 13.  2017-04-04 08:19:44 +0000    22788 byte  test/encoding.js</tspan>
-<tspan x="10" y="250"> 14.  2017-04-04 08:19:44 +0000      459 byte  test/environment-with-amd-and-umd.html</tspan>
-<tspan x="10" y="266"> 15.  2017-04-04 08:19:44 +0000      740 byte  test/environment-with-amd-and-umd.js</tspan>
-<tspan x="10" y="282"> 16.  2017-04-04 08:19:44 +0000      539 byte  test/index.html</tspan>
-<tspan x="10" y="298"> 17.  2017-04-04 08:19:44 +0000      364 byte  test/malformed_cookie.html</tspan>
-<tspan x="10" y="314"> 18.  2017-04-04 08:19:44 +0000      710 byte  test/missing_semicolon.html</tspan>
-<tspan x="10" y="330"> 19.  2017-04-04 08:19:44 +0000      832 byte  test/node.js</tspan>
-<tspan x="10" y="346"> 20.  2017-04-04 08:19:44 +0000     4169 byte  test/polyfill.js</tspan>
-<tspan x="10" y="362"> 21.  2017-04-04 08:19:44 +0000    16718 byte  test/tests.js</tspan>
-<tspan x="10" y="378"> 22.  2017-04-04 08:19:44 +0000     3190 byte  test/utils.js</tspan>
-<tspan x="10" y="394"> 23.  2017-04-04 08:19:44 +0000       88 byte  travis.sh</tspan>
+<tspan x="10" y="26">  0.  2017-04-04 08:20:57 +0000    86024 byte  .</tspan>
+<tspan x="10" y="42">  1.  2017-04-04 08:20:57 +0000     3750 byte  CONTRIBUTING.md</tspan>
+<tspan x="10" y="58">  2.  2017-04-04 08:20:57 +0000     5934 byte  Gruntfile.js</tspan>
+<tspan x="10" y="74">  3.  2017-04-04 08:20:57 +0000     1051 byte  MIT-LICENSE.txt</tspan>
+<tspan x="10" y="90">  4.  2017-04-04 08:20:57 +0000    11080 byte  README.md</tspan>
+<tspan x="10" y="106">  5.  2017-04-04 08:20:57 +0000     5304 byte  SERVER_SIDE.md</tspan>
+<tspan x="10" y="122">  6.  2017-04-04 08:20:57 +0000      270 byte  bower.json</tspan>
+<tspan x="10" y="138">  7.  2017-04-04 08:20:57 +0000     2826 byte  package.json</tspan>
+<tspan x="10" y="154">  8.  2017-04-04 08:20:57 +0000     3872 byte  src/js.cookie.js</tspan>
+<tspan x="10" y="170">  9.  2017-04-04 08:20:57 +0000      116 byte  test/amd-config.js</tspan>
+<tspan x="10" y="186"> 10.  2017-04-04 08:20:57 +0000      409 byte  test/amd.html</tspan>
+<tspan x="10" y="202"> 11.  2017-04-04 08:20:57 +0000      309 byte  test/amd.js</tspan>
+<tspan x="10" y="218"> 12.  2017-04-04 08:20:57 +0000      506 byte  test/encoding.html</tspan>
+<tspan x="10" y="234"> 13.  2017-04-04 08:20:57 +0000    22788 byte  test/encoding.js</tspan>
+<tspan x="10" y="250"> 14.  2017-04-04 08:20:57 +0000      459 byte  test/environment-with-amd-and-umd.html</tspan>
+<tspan x="10" y="266"> 15.  2017-04-04 08:20:57 +0000      740 byte  test/environment-with-amd-and-umd.js</tspan>
+<tspan x="10" y="282"> 16.  2017-04-04 08:20:57 +0000      539 byte  test/index.html</tspan>
+<tspan x="10" y="298"> 17.  2017-04-04 08:20:57 +0000      364 byte  test/malformed_cookie.html</tspan>
+<tspan x="10" y="314"> 18.  2017-04-04 08:20:57 +0000      710 byte  test/missing_semicolon.html</tspan>
+<tspan x="10" y="330"> 19.  2017-04-04 08:20:57 +0000      832 byte  test/node.js</tspan>
+<tspan x="10" y="346"> 20.  2017-04-04 08:20:57 +0000     4169 byte  test/polyfill.js</tspan>
+<tspan x="10" y="362"> 21.  2017-04-04 08:20:57 +0000    16718 byte  test/tests.js</tspan>
+<tspan x="10" y="378"> 22.  2017-04-04 08:20:57 +0000     3190 byte  test/utils.js</tspan>
+<tspan x="10" y="394"> 23.  2017-04-04 08:20:57 +0000       88 byte  travis.sh</tspan>
 </text>
 </svg>
