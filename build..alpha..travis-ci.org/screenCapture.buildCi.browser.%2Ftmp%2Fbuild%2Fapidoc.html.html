@@ -1,4 +1,4 @@
-<div class="apidocDiv">
+<html><head></head><body><div class="apidocDiv">
 <style>
 /*csslint
 */
@@ -47,17 +47,10 @@
 }
 </style>
 <h1>api documentation for
-    <a
-
-        href="https://github.com/js-cookie/js-cookie#readme"
-
-    >js-cookie (v2.1.4)</a>
+    <a href="https://github.com/js-cookie/js-cookie#readme">js-cookie (v2.1.4)</a>
 </h1>
 <h4>A simple, lightweight JavaScript API for handling cookies</h4>
-<div class="apidocSectionDiv"><a
-    href="#apidoc.tableOfContents"
-    id="apidoc.tableOfContents"
-><h1>table of contents</h1></a><ol>
+<div class="apidocSectionDiv"><a href="#apidoc.tableOfContents" id="apidoc.tableOfContents"><h1>table of contents</h1></a><ol>
 
     <li class="apidocModuleLi"><a href="#apidoc.module.js-cookie">module js-cookie</a><ol>
 
@@ -234,25 +227,25 @@
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function api(key, value, attributes) {
 			var result;
-			if (typeof document === &#x27;undefined&#x27;) {
+			if (typeof document === 'undefined') {
 				return;
 			}
 
 			// Write
 
-			if (arguments.length &#x3e; 1) {
+			if (arguments.length &gt; 1) {
 				attributes = extend({
-					path: &#x27;/&#x27;
+					path: '/'
 				}, api.defaults, attributes);
 
-				if (typeof attributes.expires === &#x27;number&#x27;) {
+				if (typeof attributes.expires === 'number') {
 					var expires = new Date();
 					expires.setMilliseconds(expires.getMilliseconds() + attributes.expires * 864e+5);
 					attributes.expires = expires;
 				}
 
-				// We&#x27;re using &#x22;expires&#x22; because &#x22;max-age&#x22; is not supported by IE
-				attributes.expires = attributes.expires ? attributes.expires.toUTCString() : &#x27;&#x27;;
+				// We're using "expires" because "max-age" is not supported by IE
+				attributes.expires = attributes.expires ? attributes.expires.toUTCString() : '';
 
 				try {
 					result = JSON.stringify(value);
@@ -272,19 +265,19 @@
 				key = key.replace(/%(23|24|26|2B|5E|60|7C)/g, decodeURIComponent);
 				key = key.replace(/[\(\)]/g, escape);
 
-				var stringifiedAttributes = &#x27;&#x27;;
+				var stringifiedAttributes = '';
 
 				for (var attributeName in attributes) {
 					if (!attributes[attributeName]) {
 						continue;
 					}
-					stringifiedAttributes += &#x27;; &#x27; + attributeName;
+					stringifiedAttributes += '; ' + attributeName;
 					if (attributes[attributeName] === true) {
 						continue;
 					}
-					stringifiedAttributes += &#x27;=&#x27; + attributes[attributeName];
+					stringifiedAttributes += '=' + attributes[attributeName];
 				}
-				return (document.cookie = key + &#x27;=&#x27; + value + stringifiedAttributes);
+				return (document.cookie = key + '=' + value + stringifiedAttributes);
 			}
 
 			// Read
@@ -295,16 +288,16 @@
 
 			// To prevent the for loop in the first place assign an empty array
 			// in case there are no cookies at all. Also prevents odd result when
-			// calling &#x22;get()&#x22;
-			var cookies = document.cookie ? document.cookie.split(&#x27;; &#x27;) : [];
+			// calling "get()"
+			var cookies = document.cookie ? document.cookie.split('; ') : [];
 			var rdecode = /(%[0-9A-Z]{2})+/g;
 			var i = 0;
 
-			for (; i &#x3c; cookies.length; i++) {
-				var parts = cookies[i].split(&#x27;=&#x27;);
-				var cookie = parts.slice(1).join(&#x27;=&#x27;);
+			for (; i &lt; cookies.length; i++) {
+				var parts = cookies[i].split('=');
+				var cookie = parts.slice(1).join('=');
 
-				if (cookie.charAt(0) === &#x27;&#x22;&#x27;) {
+				if (cookie.charAt(0) === '"') {
 					cookie = cookie.slice(1, -1);
 				}
 
@@ -348,11 +341,11 @@
     <li>description and source-code<pre class="apidocCodePre">Gruntfile = function (grunt) {
 
 	function encodingMiddleware(request, response, next) {
-		var url = require(&#x27;url&#x27;).parse(request.url, true, true);
+		var url = require('url').parse(request.url, true, true);
 		var query = url.query;
 		var pathname = url.pathname;
 
-		if (pathname !== &#x27;/encoding&#x27;) {
+		if (pathname !== '/encoding') {
 			next();
 			return;
 		}
@@ -360,7 +353,7 @@
 		var cookieName = query.name;
 		var cookieValue = query.value;
 
-		response.setHeader(&#x27;content-type&#x27;, &#x27;application/json&#x27;);
+		response.setHeader('content-type', 'application/json');
 		response.end(JSON.stringify({
 			name: cookieName,
 			value: cookieValue
@@ -368,50 +361,50 @@
 	}
 
 	grunt.initConfig({
-		pkg: grunt.file.readJSON(&#x27;package.json&#x27;),
+		pkg: grunt.file.readJSON('package.json'),
 		qunit: {
 			all: {
 				options: {
 					urls: [
-						&#x27;http://127.0.0.1:9998/&#x27;,
-						&#x27;http://127.0.0.1:9998/amd.html&#x27;,
-						&#x27;http://127.0.0.1:9998/environment-with-amd-and-umd.html&#x27;,
-						&#x27;http://127.0.0.1:9998/encoding.html?integration_baseurl=http://127.0.0.1:9998/&#x27;
+						'http://127.0.0.1:9998/',
+						'http://127.0.0.1:9998/amd.html',
+						'http://127.0.0.1:9998/environment-with-amd-and-umd.html',
+						'http://127.0.0.1:9998/encoding.html?integration_baseurl=http://127.0.0.1:9998/'
 					]
 				}
 			},
 		},
 		nodeunit: {
-			all: &#x27;test/node.js&#x27;
+			all: 'test/node.js'
 		},
 		jshint: {
 			options: {
 				jshintrc: true
 			},
-			grunt: &#x27;Gruntfile.js&#x27;,
-			source: &#x27;src/**/*.js&#x27;,
-			tests: [&#x27;test/**/*.js&#x27;, &#x27;!test/polyfill.js&#x27;]
+			grunt: 'Gruntfile.js',
+			source: 'src/**/*.js',
+			tests: ['test/**/*.js', '!test/polyfill.js']
 		},
 		jscs: {
 			options: {
 				requireCommaBeforeLineBreak: true,
 				requireLineFeedAtFileEnd: true,
 				requireSemicolons: true,
-				requireSpaceBeforeKeywords: [&#x27;else&#x27;, &#x27;while&#x27;, &#x27;catch&#x27;],
+				requireSpaceBeforeKeywords: ['else', 'while', 'catch'],
 				requireSpaceAfterKeywords: true,
 				requireSpaceAfterLineComment: true,
 				requireSpaceBeforeBlockStatements: true,
 				requireSpaceBeforeObjectValues: true,
-				validateIndentation: &#x27;\t&#x27;,
-				validateLineBreaks: &#x27;LF&#x27;,
+				validateIndentation: '\t',
+				validateLineBreaks: 'LF',
 				validateQuoteMarks: true,
-				disallowSpacesInsideArrayBrackets: &#x27;all&#x27;,
+				disallowSpacesInsideArrayBrackets: 'all',
 				disallowSpacesInsideParentheses: true,
 				disallowTrailingWhitespace: true
 			},
-			grunt: &#x27;Gruntfile.js&#x27;,
-			source: &#x27;src/**/*.js&#x27;,
-			tests: [&#x27;test/**/*.js&#x27;, &#x27;!test/polyfill.js&#x27;]
+			grunt: 'Gruntfile.js',
+			source: 'src/**/*.js',
+			tests: ['test/**/*.js', '!test/polyfill.js']
 		},
 		uglify: {
 			options: {
@@ -419,12 +412,12 @@
 					unsafe: true
 				},
 				screwIE8: false,
-				banner: &#x27;/*! &#x3c;%= pkg.name %&#x3e; v&#x3c;%= pkg.version %&#x3e; | &#x3c;%= pkg.license %&#x3e; */\n&#x27;
+				banner: '/*! &lt;%= pkg.name %&gt; v&lt;%= pkg.version %&gt; | &lt;%= pkg.license %&gt; */\n'
 			},
 			build: {
 				files: {
-					&#x27;build/js.cookie.min.js&#x27;: &#x27;src/js.cookie.js&#x27;,
-					&#x27;build/js.cookie-&#x3c;%= pkg.version %&#x3e;.min.js&#x27;: &#x27;src/js.cookie.js&#x27;
+					'build/js.cookie.min.js': 'src/js.cookie.js',
+					'build/js.cookie-&lt;%= pkg.version %&gt;.min.js': 'src/js.cookie.js'
 				}
 			}
 		},
@@ -432,44 +425,44 @@
 			options: {
 				livereload: true
 			},
-			files: &#x27;{src,test}/**/*.js&#x27;,
-			tasks: &#x27;default&#x27;
+			files: '{src,test}/**/*.js',
+			tasks: 'default'
 		},
 		compare_size: {
 			files: [
-				&#x27;build/js.cookie-&#x3c;%= pkg.version %&#x3e;.min.js&#x27;,
-				&#x27;src/js.cookie.js&#x27;
+				'build/js.cookie-&lt;%= pkg.version %&gt;.min.js',
+				'src/js.cookie.js'
 			],
 			options: {
 				compress: {
 					gz: function (fileContents) {
-						return require(&#x27;gzip-js&#x27;).zip(fileContents, {}).length;
+						return require('gzip-js').zip(fileContents, {}).length;
 					}
 				}
 			}
 		},
 		connect: {
-			&#x27;build-qunit&#x27;: {
+			'build-qunit': {
 				options: {
 					port: 9998,
-					base: [&#x27;.&#x27;, &#x27;test&#x27;],
+					base: ['.', 'test'],
 					middleware: function (connect, options, middlewares) {
 						middlewares.unshift(encodingMiddleware);
 						return middlewares;
 					}
 				}
 			},
-			&#x27;build-sauce&#x27;: {
+			'build-sauce': {
 				options: {
 					port: 9999,
-					base: [&#x27;.&#x27;, &#x27;test&#x27;]
+					base: ['.', 'test']
 				}
 			},
 			tests: {
 				options: {
 					port: 10000,
-					base: [&#x27;.&#x27;, &#x27;test&#x27;],
-					open: &#x27;http://127.0.0.1:10000&#x27;,
+					base: ['.', 'test'],
+					open: 'http://127.0.0.1:10000',
 					keepalive: true,
 					livereload: true,
 					middleware: function (connect, options, middlewares) {
@@ -479,46 +472,46 @@
 				}
 			}
 		},
-		&#x27;saucelabs-qunit&#x27;: {
+		'saucelabs-qunit': {
 			all: {
 				options: {
-					urls: [&#x27;http://127.0.0.1:9999&#x27;],
-					testname: &#x27;Sauce Test for js-cookie&#x27;,
+					urls: ['http://127.0.0.1:9999'],
+					testname: 'Sauce Test for js-cookie',
 					build: process.env.TRAVIS_JOB_ID,
 					pollInterval: 10000,
 					statusCheckAttempts: 90,
 					throttled: 3,
 					browsers: (function () {
 						var browsers = {
-							&#x27;iOS&#x27;: [{
-								browserName: &#x27;iphone&#x27;,
-								platform: &#x27;OS X 10.10&#x27;,
-								version: &#x27;8.2&#x27;,
-								deviceName: &#x27;iPhone Simulator&#x27;
+							'iOS': [{
+								browserName: 'iphone',
+								platform: 'OS X 10.10',
+								version: '8.2',
+								deviceName: 'iPhone Simulator'
 							}, {
-								browserName: &#x27;iphone&#x27;,
-								platform: &#x27;OS X 10.10&#x27;,
-								version: &#x27;8.2&#x27;,
-								deviceName: &#x27;iPad Simulator&#x27;
+								browserName: 'iphone',
+								platform: 'OS X 10.10',
+								version: '8.2',
+								deviceName: 'iPad Simulator'
 							}],
-							&#x27;android&#x27;: [{
-								browserName: &#x27;android&#x27;,
-								platform: &#x27;Linux&#x27;,
-								version: &#x27;5.1&#x27;,
-								deviceName: &#x27;Android Emulator&#x27;
+							'android': [{
+								browserName: 'android',
+								platform: 'Linux',
+								version: '5.1',
+								deviceName: 'Android Emulator'
 							}],
-							&#x27;mac&#x27;: [{
-								browserName: &#x27;safari&#x27;,
-								platform: &#x27;OS X 10.10&#x27;,
-								version: &#x27;8.0&#x27;
+							'mac': [{
+								browserName: 'safari',
+								platform: 'OS X 10.10',
+								version: '8.0'
 							}, {
-								browserName: &#x27;firefox&#x27;,
-								platform: &#x27;OS X 10.10&#x27;,
-								version: &#x27;36.0&#x27;
+								browserName: 'firefox',
+								platform: 'OS X 10.10',
+								version: '36.0'
 							}, {
-								browserName: &#x27;chrome&#x27;,
-								platform: &#x27;OS X 10.10&#x27;,
-								versiono: &#x27;41.0&#x27;
+								browserName: 'chrome',
+								platform: 'OS X 10.10',
+								versiono: '41.0'
 							}] ...</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -537,20 +530,20 @@
 		}</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 ```javascript
-Cookies.set(&#x27;name&#x27;, &#x27;value&#x27;, { expires: 7, path: &#x27;&#x27; });
+Cookies.set('name', 'value', { expires: 7, path: '' });
 ```
 
 Read cookie:
 
 ```javascript
-Cookies.<span class="apidocCodeKeywordSpan">get</span>(&#x27;name&#x27;); // =&#x3e; &#x27;value&#x27;
-Cookies.get(&#x27;nothing&#x27;); // =&#x3e; undefined
+Cookies.<span class="apidocCodeKeywordSpan">get</span>('name'); // =&gt; 'value'
+Cookies.get('nothing'); // =&gt; undefined
 ```
 
 Read all visible cookies:
 
 ```javascript
-Cookies.get(); // =&#x3e; { name: &#x27;value&#x27; }
+Cookies.get(); // =&gt; { name: 'value' }
 ...</pre></li>
     </ul>
 
@@ -570,18 +563,18 @@ Cookies.get(); // =&#x3e; { name: &#x27;value&#x27; }
 		}</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 ```javascript
-Cookies.get(); // =&#x3e; { name: &#x27;{&#x22;foo&#x22;:&#x22;bar&#x22;}&#x27; }
+Cookies.get(); // =&gt; { name: '{"foo":"bar"}' }
 ```
 
 When reading a cookie with the `Cookies.getJSON` api, you receive the parsed representation of the string stored in the cookie according
  to `JSON.parse`:
 
 ```javascript
-Cookies.<span class="apidocCodeKeywordSpan">getJSON</span>(&#x27;name&#x27;); // =&#x3e; { foo: &#x27;bar&#x27; }
+Cookies.<span class="apidocCodeKeywordSpan">getJSON</span>('name'); // =&gt; { foo: 'bar' }
 ```
 
 ```javascript
-Cookies.getJSON(); // =&#x3e; { name: { foo: &#x27;bar&#x27; } }
+Cookies.getJSON(); // =&gt; { name: { foo: 'bar' } }
 ```
 
 *Note: To support IE6-7 ([and IE 8 compatibility mode](http://stackoverflow.com/questions/4715373/json-object-undefined-in-internet
@@ -599,26 +592,26 @@ Cookies.getJSON(); // =&#x3e; { name: { foo: &#x27;bar&#x27; } }
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">remove = function (key, attributes) {
-			api(key, &#x27;&#x27;, extend(attributes, {
+			api(key, '', extend(attributes, {
 				expires: -1
 			}));
 		}</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 ```javascript
-Cookies.get(); // =&#x3e; { name: &#x27;value&#x27; }
+Cookies.get(); // =&gt; { name: 'value' }
 ```
 
 Delete cookie:
 
 ```javascript
-Cookies.<span class="apidocCodeKeywordSpan">remove</span>(&#x27;name&#x27;);
+Cookies.<span class="apidocCodeKeywordSpan">remove</span>('name');
 ```
 
 Delete a cookie valid to the path of the current page:
 
 ```javascript
-Cookies.set(&#x27;name&#x27;, &#x27;value&#x27;, { path: &#x27;&#x27; });
-Cookies.remove(&#x27;name&#x27;); // fail!
+Cookies.set('name', 'value', { path: '' });
+Cookies.remove('name'); // fail!
 ...</pre></li>
     </ul>
 
@@ -633,25 +626,25 @@ Cookies.remove(&#x27;name&#x27;); // fail!
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function api(key, value, attributes) {
 			var result;
-			if (typeof document === &#x27;undefined&#x27;) {
+			if (typeof document === 'undefined') {
 				return;
 			}
 
 			// Write
 
-			if (arguments.length &#x3e; 1) {
+			if (arguments.length &gt; 1) {
 				attributes = extend({
-					path: &#x27;/&#x27;
+					path: '/'
 				}, api.defaults, attributes);
 
-				if (typeof attributes.expires === &#x27;number&#x27;) {
+				if (typeof attributes.expires === 'number') {
 					var expires = new Date();
 					expires.setMilliseconds(expires.getMilliseconds() + attributes.expires * 864e+5);
 					attributes.expires = expires;
 				}
 
-				// We&#x27;re using &#x22;expires&#x22; because &#x22;max-age&#x22; is not supported by IE
-				attributes.expires = attributes.expires ? attributes.expires.toUTCString() : &#x27;&#x27;;
+				// We're using "expires" because "max-age" is not supported by IE
+				attributes.expires = attributes.expires ? attributes.expires.toUTCString() : '';
 
 				try {
 					result = JSON.stringify(value);
@@ -671,19 +664,19 @@ Cookies.remove(&#x27;name&#x27;); // fail!
 				key = key.replace(/%(23|24|26|2B|5E|60|7C)/g, decodeURIComponent);
 				key = key.replace(/[\(\)]/g, escape);
 
-				var stringifiedAttributes = &#x27;&#x27;;
+				var stringifiedAttributes = '';
 
 				for (var attributeName in attributes) {
 					if (!attributes[attributeName]) {
 						continue;
 					}
-					stringifiedAttributes += &#x27;; &#x27; + attributeName;
+					stringifiedAttributes += '; ' + attributeName;
 					if (attributes[attributeName] === true) {
 						continue;
 					}
-					stringifiedAttributes += &#x27;=&#x27; + attributes[attributeName];
+					stringifiedAttributes += '=' + attributes[attributeName];
 				}
-				return (document.cookie = key + &#x27;=&#x27; + value + stringifiedAttributes);
+				return (document.cookie = key + '=' + value + stringifiedAttributes);
 			}
 
 			// Read
@@ -694,16 +687,16 @@ Cookies.remove(&#x27;name&#x27;); // fail!
 
 			// To prevent the for loop in the first place assign an empty array
 			// in case there are no cookies at all. Also prevents odd result when
-			// calling &#x22;get()&#x22;
-			var cookies = document.cookie ? document.cookie.split(&#x27;; &#x27;) : [];
+			// calling "get()"
+			var cookies = document.cookie ? document.cookie.split('; ') : [];
 			var rdecode = /(%[0-9A-Z]{2})+/g;
 			var i = 0;
 
-			for (; i &#x3c; cookies.length; i++) {
-				var parts = cookies[i].split(&#x27;=&#x27;);
-				var cookie = parts.slice(1).join(&#x27;=&#x27;);
+			for (; i &lt; cookies.length; i++) {
+				var parts = cookies[i].split('=');
+				var cookie = parts.slice(1).join('=');
 
-				if (cookie.charAt(0) === &#x27;&#x22;&#x27;) {
+				if (cookie.charAt(0) === '"') {
 					cookie = cookie.slice(1, -1);
 				}
 
@@ -741,13 +734,13 @@ JavaScript Cookie can also be loaded as an AMD, CommonJS or [ES6](https://github
 Create a cookie, valid across the entire site:
 
 ```javascript
-Cookies.<span class="apidocCodeKeywordSpan">set</span>(&#x27;name&#x27;, &#x27;value&#x27;);
+Cookies.<span class="apidocCodeKeywordSpan">set</span>('name', 'value');
 ```
 
 Create a cookie that expires 7 days from now, valid across the entire site:
 
 ```javascript
-Cookies.set(&#x27;name&#x27;, &#x27;value&#x27;, { expires: 7 });
+Cookies.set('name', 'value', { expires: 7 });
 ```
 ...</pre></li>
     </ul>
@@ -779,25 +772,25 @@ Cookies.set(&#x27;name&#x27;, &#x27;value&#x27;, { expires: 7 });
     <li>description and source-code<pre class="apidocCodePre">function init(converter) {
 		function api (key, value, attributes) {
 			var result;
-			if (typeof document === &#x27;undefined&#x27;) {
+			if (typeof document === 'undefined') {
 				return;
 			}
 
 			// Write
 
-			if (arguments.length &#x3e; 1) {
+			if (arguments.length &gt; 1) {
 				attributes = extend({
-					path: &#x27;/&#x27;
+					path: '/'
 				}, api.defaults, attributes);
 
-				if (typeof attributes.expires === &#x27;number&#x27;) {
+				if (typeof attributes.expires === 'number') {
 					var expires = new Date();
 					expires.setMilliseconds(expires.getMilliseconds() + attributes.expires * 864e+5);
 					attributes.expires = expires;
 				}
 
-				// We&#x27;re using &#x22;expires&#x22; because &#x22;max-age&#x22; is not supported by IE
-				attributes.expires = attributes.expires ? attributes.expires.toUTCString() : &#x27;&#x27;;
+				// We're using "expires" because "max-age" is not supported by IE
+				attributes.expires = attributes.expires ? attributes.expires.toUTCString() : '';
 
 				try {
 					result = JSON.stringify(value);
@@ -817,19 +810,19 @@ Cookies.set(&#x27;name&#x27;, &#x27;value&#x27;, { expires: 7 });
 				key = key.replace(/%(23|24|26|2B|5E|60|7C)/g, decodeURIComponent);
 				key = key.replace(/[\(\)]/g, escape);
 
-				var stringifiedAttributes = &#x27;&#x27;;
+				var stringifiedAttributes = '';
 
 				for (var attributeName in attributes) {
 					if (!attributes[attributeName]) {
 						continue;
 					}
-					stringifiedAttributes += &#x27;; &#x27; + attributeName;
+					stringifiedAttributes += '; ' + attributeName;
 					if (attributes[attributeName] === true) {
 						continue;
 					}
-					stringifiedAttributes += &#x27;=&#x27; + attributes[attributeName];
+					stringifiedAttributes += '=' + attributes[attributeName];
 				}
-				return (document.cookie = key + &#x27;=&#x27; + value + stringifiedAttributes);
+				return (document.cookie = key + '=' + value + stringifiedAttributes);
 			}
 
 			// Read
@@ -840,16 +833,16 @@ Cookies.set(&#x27;name&#x27;, &#x27;value&#x27;, { expires: 7 });
 
 			// To prevent the for loop in the first place assign an empty array
 			// in case there are no cookies at all. Also prevents odd result when
-			// calling &#x22;get()&#x22;
-			var cookies = document.cookie ? document.cookie.split(&#x27;; &#x27;) : [];
+			// calling "get()"
+			var cookies = document.cookie ? document.cookie.split('; ') : [];
 			var rdecode = /(%[0-9A-Z]{2})+/g;
 			var i = 0;
 
-			for (; i &#x3c; cookies.length; i++) {
-				var parts = cookies[i].split(&#x27;=&#x27;);
-				var cookie = parts.slice(1).join(&#x27;=&#x27;);
+			for (; i &lt; cookies.length; i++) {
+				var parts = cookies[i].split('=');
+				var cookie = parts.slice(1).join('=');
 
-				if (cookie.charAt(0) === &#x27;&#x22;&#x27;) {
+				if (cookie.charAt(0) === '"') {
 					cookie = cookie.slice(1, -1);
 				}
 
@@ -891,7 +884,7 @@ Cookies.set(&#x27;name&#x27;, &#x27;value&#x27;, { expires: 7 });
 		api.defaults = {};
 
 		api.remove = function (key, attributes) {
-			api(key, &#x27;&#x27;, extend(attributes, {
+			api(key, '', extend(attributes, {
 				expires: -1
 			}));
 		};
@@ -906,16 +899,16 @@ The returning String will be used as the cookie value.
 Example from reading one of the cookies that can only be decoded using the `escape` function:
 
 ```javascript
-document.cookie = &#x27;escaped=%u5317&#x27;;
-document.cookie = &#x27;default=%E5%8C%97&#x27;;
+document.cookie = 'escaped=%u5317';
+document.cookie = 'default=%E5%8C%97';
 var cookies = Cookies.<span class="apidocCodeKeywordSpan">withConverter</span>(function (value, name) {
-    if ( name === &#x27;escaped&#x27; ) {
+    if ( name === 'escaped' ) {
         return unescape(value);
     }
 });
-cookies.get(&#x27;escaped&#x27;); // 北
-cookies.get(&#x27;default&#x27;); // 北
-cookies.get(); // { escaped: &#x27;北&#x27;, default: &#x27;北&#x27; }
+cookies.get('escaped'); // åŒ—
+cookies.get('default'); // åŒ—
+cookies.get(); // { escaped: 'åŒ—', default: 'åŒ—' }
 ...</pre></li>
     </ul>
 
@@ -938,11 +931,11 @@ cookies.get(); // { escaped: &#x27;北&#x27;, default: &#x27;北&#x27; }
     <li>description and source-code<pre class="apidocCodePre">Gruntfile = function (grunt) {
 
 	function encodingMiddleware(request, response, next) {
-		var url = require(&#x27;url&#x27;).parse(request.url, true, true);
+		var url = require('url').parse(request.url, true, true);
 		var query = url.query;
 		var pathname = url.pathname;
 
-		if (pathname !== &#x27;/encoding&#x27;) {
+		if (pathname !== '/encoding') {
 			next();
 			return;
 		}
@@ -950,7 +943,7 @@ cookies.get(); // { escaped: &#x27;北&#x27;, default: &#x27;北&#x27; }
 		var cookieName = query.name;
 		var cookieValue = query.value;
 
-		response.setHeader(&#x27;content-type&#x27;, &#x27;application/json&#x27;);
+		response.setHeader('content-type', 'application/json');
 		response.end(JSON.stringify({
 			name: cookieName,
 			value: cookieValue
@@ -958,50 +951,50 @@ cookies.get(); // { escaped: &#x27;北&#x27;, default: &#x27;北&#x27; }
 	}
 
 	grunt.initConfig({
-		pkg: grunt.file.readJSON(&#x27;package.json&#x27;),
+		pkg: grunt.file.readJSON('package.json'),
 		qunit: {
 			all: {
 				options: {
 					urls: [
-						&#x27;http://127.0.0.1:9998/&#x27;,
-						&#x27;http://127.0.0.1:9998/amd.html&#x27;,
-						&#x27;http://127.0.0.1:9998/environment-with-amd-and-umd.html&#x27;,
-						&#x27;http://127.0.0.1:9998/encoding.html?integration_baseurl=http://127.0.0.1:9998/&#x27;
+						'http://127.0.0.1:9998/',
+						'http://127.0.0.1:9998/amd.html',
+						'http://127.0.0.1:9998/environment-with-amd-and-umd.html',
+						'http://127.0.0.1:9998/encoding.html?integration_baseurl=http://127.0.0.1:9998/'
 					]
 				}
 			},
 		},
 		nodeunit: {
-			all: &#x27;test/node.js&#x27;
+			all: 'test/node.js'
 		},
 		jshint: {
 			options: {
 				jshintrc: true
 			},
-			grunt: &#x27;Gruntfile.js&#x27;,
-			source: &#x27;src/**/*.js&#x27;,
-			tests: [&#x27;test/**/*.js&#x27;, &#x27;!test/polyfill.js&#x27;]
+			grunt: 'Gruntfile.js',
+			source: 'src/**/*.js',
+			tests: ['test/**/*.js', '!test/polyfill.js']
 		},
 		jscs: {
 			options: {
 				requireCommaBeforeLineBreak: true,
 				requireLineFeedAtFileEnd: true,
 				requireSemicolons: true,
-				requireSpaceBeforeKeywords: [&#x27;else&#x27;, &#x27;while&#x27;, &#x27;catch&#x27;],
+				requireSpaceBeforeKeywords: ['else', 'while', 'catch'],
 				requireSpaceAfterKeywords: true,
 				requireSpaceAfterLineComment: true,
 				requireSpaceBeforeBlockStatements: true,
 				requireSpaceBeforeObjectValues: true,
-				validateIndentation: &#x27;\t&#x27;,
-				validateLineBreaks: &#x27;LF&#x27;,
+				validateIndentation: '\t',
+				validateLineBreaks: 'LF',
 				validateQuoteMarks: true,
-				disallowSpacesInsideArrayBrackets: &#x27;all&#x27;,
+				disallowSpacesInsideArrayBrackets: 'all',
 				disallowSpacesInsideParentheses: true,
 				disallowTrailingWhitespace: true
 			},
-			grunt: &#x27;Gruntfile.js&#x27;,
-			source: &#x27;src/**/*.js&#x27;,
-			tests: [&#x27;test/**/*.js&#x27;, &#x27;!test/polyfill.js&#x27;]
+			grunt: 'Gruntfile.js',
+			source: 'src/**/*.js',
+			tests: ['test/**/*.js', '!test/polyfill.js']
 		},
 		uglify: {
 			options: {
@@ -1009,12 +1002,12 @@ cookies.get(); // { escaped: &#x27;北&#x27;, default: &#x27;北&#x27; }
 					unsafe: true
 				},
 				screwIE8: false,
-				banner: &#x27;/*! &#x3c;%= pkg.name %&#x3e; v&#x3c;%= pkg.version %&#x3e; | &#x3c;%= pkg.license %&#x3e; */\n&#x27;
+				banner: '/*! &lt;%= pkg.name %&gt; v&lt;%= pkg.version %&gt; | &lt;%= pkg.license %&gt; */\n'
 			},
 			build: {
 				files: {
-					&#x27;build/js.cookie.min.js&#x27;: &#x27;src/js.cookie.js&#x27;,
-					&#x27;build/js.cookie-&#x3c;%= pkg.version %&#x3e;.min.js&#x27;: &#x27;src/js.cookie.js&#x27;
+					'build/js.cookie.min.js': 'src/js.cookie.js',
+					'build/js.cookie-&lt;%= pkg.version %&gt;.min.js': 'src/js.cookie.js'
 				}
 			}
 		},
@@ -1022,44 +1015,44 @@ cookies.get(); // { escaped: &#x27;北&#x27;, default: &#x27;北&#x27; }
 			options: {
 				livereload: true
 			},
-			files: &#x27;{src,test}/**/*.js&#x27;,
-			tasks: &#x27;default&#x27;
+			files: '{src,test}/**/*.js',
+			tasks: 'default'
 		},
 		compare_size: {
 			files: [
-				&#x27;build/js.cookie-&#x3c;%= pkg.version %&#x3e;.min.js&#x27;,
-				&#x27;src/js.cookie.js&#x27;
+				'build/js.cookie-&lt;%= pkg.version %&gt;.min.js',
+				'src/js.cookie.js'
 			],
 			options: {
 				compress: {
 					gz: function (fileContents) {
-						return require(&#x27;gzip-js&#x27;).zip(fileContents, {}).length;
+						return require('gzip-js').zip(fileContents, {}).length;
 					}
 				}
 			}
 		},
 		connect: {
-			&#x27;build-qunit&#x27;: {
+			'build-qunit': {
 				options: {
 					port: 9998,
-					base: [&#x27;.&#x27;, &#x27;test&#x27;],
+					base: ['.', 'test'],
 					middleware: function (connect, options, middlewares) {
 						middlewares.unshift(encodingMiddleware);
 						return middlewares;
 					}
 				}
 			},
-			&#x27;build-sauce&#x27;: {
+			'build-sauce': {
 				options: {
 					port: 9999,
-					base: [&#x27;.&#x27;, &#x27;test&#x27;]
+					base: ['.', 'test']
 				}
 			},
 			tests: {
 				options: {
 					port: 10000,
-					base: [&#x27;.&#x27;, &#x27;test&#x27;],
-					open: &#x27;http://127.0.0.1:10000&#x27;,
+					base: ['.', 'test'],
+					open: 'http://127.0.0.1:10000',
 					keepalive: true,
 					livereload: true,
 					middleware: function (connect, options, middlewares) {
@@ -1069,46 +1062,46 @@ cookies.get(); // { escaped: &#x27;北&#x27;, default: &#x27;北&#x27; }
 				}
 			}
 		},
-		&#x27;saucelabs-qunit&#x27;: {
+		'saucelabs-qunit': {
 			all: {
 				options: {
-					urls: [&#x27;http://127.0.0.1:9999&#x27;],
-					testname: &#x27;Sauce Test for js-cookie&#x27;,
+					urls: ['http://127.0.0.1:9999'],
+					testname: 'Sauce Test for js-cookie',
 					build: process.env.TRAVIS_JOB_ID,
 					pollInterval: 10000,
 					statusCheckAttempts: 90,
 					throttled: 3,
 					browsers: (function () {
 						var browsers = {
-							&#x27;iOS&#x27;: [{
-								browserName: &#x27;iphone&#x27;,
-								platform: &#x27;OS X 10.10&#x27;,
-								version: &#x27;8.2&#x27;,
-								deviceName: &#x27;iPhone Simulator&#x27;
+							'iOS': [{
+								browserName: 'iphone',
+								platform: 'OS X 10.10',
+								version: '8.2',
+								deviceName: 'iPhone Simulator'
 							}, {
-								browserName: &#x27;iphone&#x27;,
-								platform: &#x27;OS X 10.10&#x27;,
-								version: &#x27;8.2&#x27;,
-								deviceName: &#x27;iPad Simulator&#x27;
+								browserName: 'iphone',
+								platform: 'OS X 10.10',
+								version: '8.2',
+								deviceName: 'iPad Simulator'
 							}],
-							&#x27;android&#x27;: [{
-								browserName: &#x27;android&#x27;,
-								platform: &#x27;Linux&#x27;,
-								version: &#x27;5.1&#x27;,
-								deviceName: &#x27;Android Emulator&#x27;
+							'android': [{
+								browserName: 'android',
+								platform: 'Linux',
+								version: '5.1',
+								deviceName: 'Android Emulator'
 							}],
-							&#x27;mac&#x27;: [{
-								browserName: &#x27;safari&#x27;,
-								platform: &#x27;OS X 10.10&#x27;,
-								version: &#x27;8.0&#x27;
+							'mac': [{
+								browserName: 'safari',
+								platform: 'OS X 10.10',
+								version: '8.0'
 							}, {
-								browserName: &#x27;firefox&#x27;,
-								platform: &#x27;OS X 10.10&#x27;,
-								version: &#x27;36.0&#x27;
+								browserName: 'firefox',
+								platform: 'OS X 10.10',
+								version: '36.0'
 							}, {
-								browserName: &#x27;chrome&#x27;,
-								platform: &#x27;OS X 10.10&#x27;,
-								versiono: &#x27;41.0&#x27;
+								browserName: 'chrome',
+								platform: 'OS X 10.10',
+								versiono: '41.0'
 							}] ...</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -1132,20 +1125,20 @@ cookies.get(); // { escaped: &#x27;北&#x27;, default: &#x27;北&#x27; }
 		}</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 ```javascript
-Cookies.set(&#x27;name&#x27;, &#x27;value&#x27;, { expires: 7, path: &#x27;&#x27; });
+Cookies.set('name', 'value', { expires: 7, path: '' });
 ```
 
 Read cookie:
 
 ```javascript
-Cookies.<span class="apidocCodeKeywordSpan">get</span>(&#x27;name&#x27;); // =&#x3e; &#x27;value&#x27;
-Cookies.get(&#x27;nothing&#x27;); // =&#x3e; undefined
+Cookies.<span class="apidocCodeKeywordSpan">get</span>('name'); // =&gt; 'value'
+Cookies.get('nothing'); // =&gt; undefined
 ```
 
 Read all visible cookies:
 
 ```javascript
-Cookies.get(); // =&#x3e; { name: &#x27;value&#x27; }
+Cookies.get(); // =&gt; { name: 'value' }
 ...</pre></li>
     </ul>
 
@@ -1170,18 +1163,18 @@ Cookies.get(); // =&#x3e; { name: &#x27;value&#x27; }
 		}</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 ```javascript
-Cookies.get(); // =&#x3e; { name: &#x27;{&#x22;foo&#x22;:&#x22;bar&#x22;}&#x27; }
+Cookies.get(); // =&gt; { name: '{"foo":"bar"}' }
 ```
 
 When reading a cookie with the `Cookies.getJSON` api, you receive the parsed representation of the string stored in the cookie according
  to `JSON.parse`:
 
 ```javascript
-Cookies.<span class="apidocCodeKeywordSpan">getJSON</span>(&#x27;name&#x27;); // =&#x3e; { foo: &#x27;bar&#x27; }
+Cookies.<span class="apidocCodeKeywordSpan">getJSON</span>('name'); // =&gt; { foo: 'bar' }
 ```
 
 ```javascript
-Cookies.getJSON(); // =&#x3e; { name: { foo: &#x27;bar&#x27; } }
+Cookies.getJSON(); // =&gt; { name: { foo: 'bar' } }
 ```
 
 *Note: To support IE6-7 ([and IE 8 compatibility mode](http://stackoverflow.com/questions/4715373/json-object-undefined-in-internet
@@ -1204,26 +1197,26 @@ Cookies.getJSON(); // =&#x3e; { name: { foo: &#x27;bar&#x27; } }
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">remove = function (key, attributes) {
-			api(key, &#x27;&#x27;, extend(attributes, {
+			api(key, '', extend(attributes, {
 				expires: -1
 			}));
 		}</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 ```javascript
-Cookies.get(); // =&#x3e; { name: &#x27;value&#x27; }
+Cookies.get(); // =&gt; { name: 'value' }
 ```
 
 Delete cookie:
 
 ```javascript
-Cookies.<span class="apidocCodeKeywordSpan">remove</span>(&#x27;name&#x27;);
+Cookies.<span class="apidocCodeKeywordSpan">remove</span>('name');
 ```
 
 Delete a cookie valid to the path of the current page:
 
 ```javascript
-Cookies.set(&#x27;name&#x27;, &#x27;value&#x27;, { path: &#x27;&#x27; });
-Cookies.remove(&#x27;name&#x27;); // fail!
+Cookies.set('name', 'value', { path: '' });
+Cookies.remove('name'); // fail!
 ...</pre></li>
     </ul>
 
@@ -1262,25 +1255,25 @@ Cookies.remove(&#x27;name&#x27;); // fail!
     <li>description and source-code<pre class="apidocCodePre">function init(converter) {
 		function api (key, value, attributes) {
 			var result;
-			if (typeof document === &#x27;undefined&#x27;) {
+			if (typeof document === 'undefined') {
 				return;
 			}
 
 			// Write
 
-			if (arguments.length &#x3e; 1) {
+			if (arguments.length &gt; 1) {
 				attributes = extend({
-					path: &#x27;/&#x27;
+					path: '/'
 				}, api.defaults, attributes);
 
-				if (typeof attributes.expires === &#x27;number&#x27;) {
+				if (typeof attributes.expires === 'number') {
 					var expires = new Date();
 					expires.setMilliseconds(expires.getMilliseconds() + attributes.expires * 864e+5);
 					attributes.expires = expires;
 				}
 
-				// We&#x27;re using &#x22;expires&#x22; because &#x22;max-age&#x22; is not supported by IE
-				attributes.expires = attributes.expires ? attributes.expires.toUTCString() : &#x27;&#x27;;
+				// We're using "expires" because "max-age" is not supported by IE
+				attributes.expires = attributes.expires ? attributes.expires.toUTCString() : '';
 
 				try {
 					result = JSON.stringify(value);
@@ -1300,19 +1293,19 @@ Cookies.remove(&#x27;name&#x27;); // fail!
 				key = key.replace(/%(23|24|26|2B|5E|60|7C)/g, decodeURIComponent);
 				key = key.replace(/[\(\)]/g, escape);
 
-				var stringifiedAttributes = &#x27;&#x27;;
+				var stringifiedAttributes = '';
 
 				for (var attributeName in attributes) {
 					if (!attributes[attributeName]) {
 						continue;
 					}
-					stringifiedAttributes += &#x27;; &#x27; + attributeName;
+					stringifiedAttributes += '; ' + attributeName;
 					if (attributes[attributeName] === true) {
 						continue;
 					}
-					stringifiedAttributes += &#x27;=&#x27; + attributes[attributeName];
+					stringifiedAttributes += '=' + attributes[attributeName];
 				}
-				return (document.cookie = key + &#x27;=&#x27; + value + stringifiedAttributes);
+				return (document.cookie = key + '=' + value + stringifiedAttributes);
 			}
 
 			// Read
@@ -1323,16 +1316,16 @@ Cookies.remove(&#x27;name&#x27;); // fail!
 
 			// To prevent the for loop in the first place assign an empty array
 			// in case there are no cookies at all. Also prevents odd result when
-			// calling &#x22;get()&#x22;
-			var cookies = document.cookie ? document.cookie.split(&#x27;; &#x27;) : [];
+			// calling "get()"
+			var cookies = document.cookie ? document.cookie.split('; ') : [];
 			var rdecode = /(%[0-9A-Z]{2})+/g;
 			var i = 0;
 
-			for (; i &#x3c; cookies.length; i++) {
-				var parts = cookies[i].split(&#x27;=&#x27;);
-				var cookie = parts.slice(1).join(&#x27;=&#x27;);
+			for (; i &lt; cookies.length; i++) {
+				var parts = cookies[i].split('=');
+				var cookie = parts.slice(1).join('=');
 
-				if (cookie.charAt(0) === &#x27;&#x22;&#x27;) {
+				if (cookie.charAt(0) === '"') {
 					cookie = cookie.slice(1, -1);
 				}
 
@@ -1374,7 +1367,7 @@ Cookies.remove(&#x27;name&#x27;); // fail!
 		api.defaults = {};
 
 		api.remove = function (key, attributes) {
-			api(key, &#x27;&#x27;, extend(attributes, {
+			api(key, '', extend(attributes, {
 				expires: -1
 			}));
 		};
@@ -1389,16 +1382,16 @@ The returning String will be used as the cookie value.
 Example from reading one of the cookies that can only be decoded using the `escape` function:
 
 ```javascript
-document.cookie = &#x27;escaped=%u5317&#x27;;
-document.cookie = &#x27;default=%E5%8C%97&#x27;;
+document.cookie = 'escaped=%u5317';
+document.cookie = 'default=%E5%8C%97';
 var cookies = Cookies.<span class="apidocCodeKeywordSpan">withConverter</span>(function (value, name) {
-    if ( name === &#x27;escaped&#x27; ) {
+    if ( name === 'escaped' ) {
         return unescape(value);
     }
 });
-cookies.get(&#x27;escaped&#x27;); // 北
-cookies.get(&#x27;default&#x27;); // 北
-cookies.get(); // { escaped: &#x27;北&#x27;, default: &#x27;北&#x27; }
+cookies.get('escaped'); // åŒ—
+cookies.get('default'); // åŒ—
+cookies.get(); // { escaped: 'åŒ—', default: 'åŒ—' }
 ...</pre></li>
     </ul>
 
@@ -1411,3 +1404,4 @@ cookies.get(); // { escaped: &#x27;北&#x27;, default: &#x27;北&#x27; }
     ]
 </div>
 </div>
+</body></html>
