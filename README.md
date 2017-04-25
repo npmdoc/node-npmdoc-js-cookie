@@ -1,4 +1,7 @@
-# api documentation for  [js-cookie (v2.1.4)](https://github.com/js-cookie/js-cookie#readme)  [![npm package](https://img.shields.io/npm/v/npmdoc-js-cookie.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-js-cookie) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-js-cookie.svg)](https://travis-ci.org/npmdoc/node-npmdoc-js-cookie)
+# npmdoc-js-cookie
+
+#### basic api documentation for  [js-cookie (v2.1.4)](https://github.com/js-cookie/js-cookie#readme)  [![npm package](https://img.shields.io/npm/v/npmdoc-js-cookie.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-js-cookie) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-js-cookie.svg)](https://travis-ci.org/npmdoc/node-npmdoc-js-cookie)
+
 #### A simple, lightweight JavaScript API for handling cookies
 
 [![NPM](https://nodei.co/npm/js-cookie.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/js-cookie)
@@ -80,7 +83,8 @@
     "scripts": {
         "test": "grunt test"
     },
-    "version": "2.1.4"
+    "version": "2.1.4",
+    "bin": {}
 }
 ```
 
