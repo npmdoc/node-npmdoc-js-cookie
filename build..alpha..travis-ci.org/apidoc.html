@@ -72,15 +72,6 @@
 
         <li>
 
-            <a class="apidocElementLiA" href="#apidoc.element.js-cookie.Gruntfile">
-            function <span class="apidocSignatureSpan">js-cookie.</span>Gruntfile
-            <span class="apidocSignatureSpan">(grunt)</span>
-            </a>
-
-        </li>
-
-        <li>
-
             <a class="apidocElementLiA" href="#apidoc.element.js-cookie.get">
             function <span class="apidocSignatureSpan">js-cookie.</span>get
             <span class="apidocSignatureSpan">(key)</span>
@@ -117,15 +108,6 @@
 
         <li>
 
-            <a class="apidocElementLiA" href="#apidoc.element.js-cookie.toString">
-            function <span class="apidocSignatureSpan">js-cookie.</span>toString
-            <span class="apidocSignatureSpan">()</span>
-            </a>
-
-        </li>
-
-        <li>
-
             <a class="apidocElementLiA" href="#apidoc.element.js-cookie.withConverter">
             function <span class="apidocSignatureSpan">js-cookie.</span>withConverter
             <span class="apidocSignatureSpan">(converter)</span>
@@ -141,79 +123,56 @@
 
     </ol></li>
 
-    <li class="apidocModuleLi"><a href="#apidoc.module.js-cookie.Gruntfile">module js-cookie.Gruntfile</a><ol>
+    <li class="apidocModuleLi"><a href="#apidoc.module.js-cookie.set">module js-cookie.set</a><ol>
 
         <li>
 
-            <a class="apidocElementLiA" href="#apidoc.element.js-cookie.Gruntfile.Gruntfile">
-            function <span class="apidocSignatureSpan">js-cookie.</span>Gruntfile
-            <span class="apidocSignatureSpan">(grunt)</span>
+            <a class="apidocElementLiA" href="#apidoc.element.js-cookie.set.set">
+            function <span class="apidocSignatureSpan">js-cookie.</span>set
+            <span class="apidocSignatureSpan">(key, value, attributes)</span>
             </a>
 
         </li>
 
-    </ol></li>
-
-    <li class="apidocModuleLi"><a href="#apidoc.module.js-cookie.get">module js-cookie.get</a><ol>
-
         <li>
 
-            <a class="apidocElementLiA" href="#apidoc.element.js-cookie.get.get">
-            function <span class="apidocSignatureSpan">js-cookie.</span>get
+            <a class="apidocElementLiA" href="#apidoc.element.js-cookie.set.get">
+            function <span class="apidocSignatureSpan">js-cookie.set.</span>get
             <span class="apidocSignatureSpan">(key)</span>
             </a>
 
         </li>
 
-    </ol></li>
-
-    <li class="apidocModuleLi"><a href="#apidoc.module.js-cookie.getJSON">module js-cookie.getJSON</a><ol>
-
         <li>
 
-            <a class="apidocElementLiA" href="#apidoc.element.js-cookie.getJSON.getJSON">
-            function <span class="apidocSignatureSpan">js-cookie.</span>getJSON
+            <a class="apidocElementLiA" href="#apidoc.element.js-cookie.set.getJSON">
+            function <span class="apidocSignatureSpan">js-cookie.set.</span>getJSON
             <span class="apidocSignatureSpan">()</span>
             </a>
 
         </li>
 
-    </ol></li>
-
-    <li class="apidocModuleLi"><a href="#apidoc.module.js-cookie.remove">module js-cookie.remove</a><ol>
-
         <li>
 
-            <a class="apidocElementLiA" href="#apidoc.element.js-cookie.remove.remove">
-            function <span class="apidocSignatureSpan">js-cookie.</span>remove
+            <a class="apidocElementLiA" href="#apidoc.element.js-cookie.set.remove">
+            function <span class="apidocSignatureSpan">js-cookie.set.</span>remove
             <span class="apidocSignatureSpan">(key, attributes)</span>
             </a>
 
         </li>
 
-    </ol></li>
-
-    <li class="apidocModuleLi"><a href="#apidoc.module.js-cookie.toString">module js-cookie.toString</a><ol>
-
         <li>
 
-            <a class="apidocElementLiA" href="#apidoc.element.js-cookie.toString.toString">
-            function <span class="apidocSignatureSpan">js-cookie.</span>toString
-            <span class="apidocSignatureSpan">()</span>
+            <a class="apidocElementLiA" href="#apidoc.element.js-cookie.set.withConverter">
+            function <span class="apidocSignatureSpan">js-cookie.set.</span>withConverter
+            <span class="apidocSignatureSpan">(converter)</span>
             </a>
 
         </li>
 
-    </ol></li>
-
-    <li class="apidocModuleLi"><a href="#apidoc.module.js-cookie.withConverter">module js-cookie.withConverter</a><ol>
-
         <li>
 
-            <a class="apidocElementLiA" href="#apidoc.element.js-cookie.withConverter.withConverter">
-            function <span class="apidocSignatureSpan">js-cookie.</span>withConverter
-            <span class="apidocSignatureSpan">(converter)</span>
-            </a>
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">js-cookie.set.</span>defaults</span>
 
         </li>
 
@@ -333,193 +292,6 @@
 
 			return result;
 		}</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
-    </ul>
-
-
-
-    <h2>
-        <a href="#apidoc.element.js-cookie.Gruntfile" id="apidoc.element.js-cookie.Gruntfile">
-        function <span class="apidocSignatureSpan">js-cookie.</span>Gruntfile
-        <span class="apidocSignatureSpan">(grunt)</span>
-        </a>
-    </h2>
-    <ul>
-    <li>description and source-code<pre class="apidocCodePre">Gruntfile = function (grunt) {
-
-	function encodingMiddleware(request, response, next) {
-		var url = require(&#x27;url&#x27;).parse(request.url, true, true);
-		var query = url.query;
-		var pathname = url.pathname;
-
-		if (pathname !== &#x27;/encoding&#x27;) {
-			next();
-			return;
-		}
-
-		var cookieName = query.name;
-		var cookieValue = query.value;
-
-		response.setHeader(&#x27;content-type&#x27;, &#x27;application/json&#x27;);
-		response.end(JSON.stringify({
-			name: cookieName,
-			value: cookieValue
-		}));
-	}
-
-	grunt.initConfig({
-		pkg: grunt.file.readJSON(&#x27;package.json&#x27;),
-		qunit: {
-			all: {
-				options: {
-					urls: [
-						&#x27;http://127.0.0.1:9998/&#x27;,
-						&#x27;http://127.0.0.1:9998/amd.html&#x27;,
-						&#x27;http://127.0.0.1:9998/environment-with-amd-and-umd.html&#x27;,
-						&#x27;http://127.0.0.1:9998/encoding.html?integration_baseurl=http://127.0.0.1:9998/&#x27;
-					]
-				}
-			},
-		},
-		nodeunit: {
-			all: &#x27;test/node.js&#x27;
-		},
-		jshint: {
-			options: {
-				jshintrc: true
-			},
-			grunt: &#x27;Gruntfile.js&#x27;,
-			source: &#x27;src/**/*.js&#x27;,
-			tests: [&#x27;test/**/*.js&#x27;, &#x27;!test/polyfill.js&#x27;]
-		},
-		jscs: {
-			options: {
-				requireCommaBeforeLineBreak: true,
-				requireLineFeedAtFileEnd: true,
-				requireSemicolons: true,
-				requireSpaceBeforeKeywords: [&#x27;else&#x27;, &#x27;while&#x27;, &#x27;catch&#x27;],
-				requireSpaceAfterKeywords: true,
-				requireSpaceAfterLineComment: true,
-				requireSpaceBeforeBlockStatements: true,
-				requireSpaceBeforeObjectValues: true,
-				validateIndentation: &#x27;\t&#x27;,
-				validateLineBreaks: &#x27;LF&#x27;,
-				validateQuoteMarks: true,
-				disallowSpacesInsideArrayBrackets: &#x27;all&#x27;,
-				disallowSpacesInsideParentheses: true,
-				disallowTrailingWhitespace: true
-			},
-			grunt: &#x27;Gruntfile.js&#x27;,
-			source: &#x27;src/**/*.js&#x27;,
-			tests: [&#x27;test/**/*.js&#x27;, &#x27;!test/polyfill.js&#x27;]
-		},
-		uglify: {
-			options: {
-				compress: {
-					unsafe: true
-				},
-				screwIE8: false,
-				banner: &#x27;/*! &#x3c;%= pkg.name %&#x3e; v&#x3c;%= pkg.version %&#x3e; | &#x3c;%= pkg.license %&#x3e; */\n&#x27;
-			},
-			build: {
-				files: {
-					&#x27;build/js.cookie.min.js&#x27;: &#x27;src/js.cookie.js&#x27;,
-					&#x27;build/js.cookie-&#x3c;%= pkg.version %&#x3e;.min.js&#x27;: &#x27;src/js.cookie.js&#x27;
-				}
-			}
-		},
-		watch: {
-			options: {
-				livereload: true
-			},
-			files: &#x27;{src,test}/**/*.js&#x27;,
-			tasks: &#x27;default&#x27;
-		},
-		compare_size: {
-			files: [
-				&#x27;build/js.cookie-&#x3c;%= pkg.version %&#x3e;.min.js&#x27;,
-				&#x27;src/js.cookie.js&#x27;
-			],
-			options: {
-				compress: {
-					gz: function (fileContents) {
-						return require(&#x27;gzip-js&#x27;).zip(fileContents, {}).length;
-					}
-				}
-			}
-		},
-		connect: {
-			&#x27;build-qunit&#x27;: {
-				options: {
-					port: 9998,
-					base: [&#x27;.&#x27;, &#x27;test&#x27;],
-					middleware: function (connect, options, middlewares) {
-						middlewares.unshift(encodingMiddleware);
-						return middlewares;
-					}
-				}
-			},
-			&#x27;build-sauce&#x27;: {
-				options: {
-					port: 9999,
-					base: [&#x27;.&#x27;, &#x27;test&#x27;]
-				}
-			},
-			tests: {
-				options: {
-					port: 10000,
-					base: [&#x27;.&#x27;, &#x27;test&#x27;],
-					open: &#x27;http://127.0.0.1:10000&#x27;,
-					keepalive: true,
-					livereload: true,
-					middleware: function (connect, options, middlewares) {
-						middlewares.unshift(encodingMiddleware);
-						return middlewares;
-					}
-				}
-			}
-		},
-		&#x27;saucelabs-qunit&#x27;: {
-			all: {
-				options: {
-					urls: [&#x27;http://127.0.0.1:9999&#x27;],
-					testname: &#x27;Sauce Test for js-cookie&#x27;,
-					build: process.env.TRAVIS_JOB_ID,
-					pollInterval: 10000,
-					statusCheckAttempts: 90,
-					throttled: 3,
-					browsers: (function () {
-						var browsers = {
-							&#x27;iOS&#x27;: [{
-								browserName: &#x27;iphone&#x27;,
-								platform: &#x27;OS X 10.10&#x27;,
-								version: &#x27;8.2&#x27;,
-								deviceName: &#x27;iPhone Simulator&#x27;
-							}, {
-								browserName: &#x27;iphone&#x27;,
-								platform: &#x27;OS X 10.10&#x27;,
-								version: &#x27;8.2&#x27;,
-								deviceName: &#x27;iPad Simulator&#x27;
-							}],
-							&#x27;android&#x27;: [{
-								browserName: &#x27;android&#x27;,
-								platform: &#x27;Linux&#x27;,
-								version: &#x27;5.1&#x27;,
-								deviceName: &#x27;Android Emulator&#x27;
-							}],
-							&#x27;mac&#x27;: [{
-								browserName: &#x27;safari&#x27;,
-								platform: &#x27;OS X 10.10&#x27;,
-								version: &#x27;8.0&#x27;
-							}, {
-								browserName: &#x27;firefox&#x27;,
-								platform: &#x27;OS X 10.10&#x27;,
-								version: &#x27;36.0&#x27;
-							}, {
-								browserName: &#x27;chrome&#x27;,
-								platform: &#x27;OS X 10.10&#x27;,
-								versiono: &#x27;41.0&#x27;
-							}] ...</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
@@ -755,21 +527,6 @@ Cookies.set(&#x27;name&#x27;, &#x27;value&#x27;, { expires: 7 });
 
 
     <h2>
-        <a href="#apidoc.element.js-cookie.toString" id="apidoc.element.js-cookie.toString">
-        function <span class="apidocSignatureSpan">js-cookie.</span>toString
-        <span class="apidocSignatureSpan">()</span>
-        </a>
-    </h2>
-    <ul>
-    <li>description and source-code<pre class="apidocCodePre">toString = function () {
-    return text;
-}</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
-    </ul>
-
-
-
-    <h2>
         <a href="#apidoc.element.js-cookie.withConverter" id="apidoc.element.js-cookie.withConverter">
         function <span class="apidocSignatureSpan">js-cookie.</span>withConverter
         <span class="apidocSignatureSpan">(converter)</span>
@@ -925,204 +682,142 @@ cookies.get(); // { escaped: &#x27;北&#x27;, default: &#x27;北&#x27; }
 </div>
 
 <div class="apidocSectionDiv">
-<h1><a href="#apidoc.module.js-cookie.Gruntfile" id="apidoc.module.js-cookie.Gruntfile">module js-cookie.Gruntfile</a></h1>
+<h1><a href="#apidoc.module.js-cookie.set" id="apidoc.module.js-cookie.set">module js-cookie.set</a></h1>
 
 
     <h2>
-        <a href="#apidoc.element.js-cookie.Gruntfile.Gruntfile" id="apidoc.element.js-cookie.Gruntfile.Gruntfile">
-        function <span class="apidocSignatureSpan">js-cookie.</span>Gruntfile
-        <span class="apidocSignatureSpan">(grunt)</span>
+        <a href="#apidoc.element.js-cookie.set.set" id="apidoc.element.js-cookie.set.set">
+        function <span class="apidocSignatureSpan">js-cookie.</span>set
+        <span class="apidocSignatureSpan">(key, value, attributes)</span>
         </a>
     </h2>
     <ul>
-    <li>description and source-code<pre class="apidocCodePre">Gruntfile = function (grunt) {
-
-	function encodingMiddleware(request, response, next) {
-		var url = require(&#x27;url&#x27;).parse(request.url, true, true);
-		var query = url.query;
-		var pathname = url.pathname;
-
-		if (pathname !== &#x27;/encoding&#x27;) {
-			next();
-			return;
-		}
-
-		var cookieName = query.name;
-		var cookieValue = query.value;
-
-		response.setHeader(&#x27;content-type&#x27;, &#x27;application/json&#x27;);
-		response.end(JSON.stringify({
-			name: cookieName,
-			value: cookieValue
-		}));
-	}
-
-	grunt.initConfig({
-		pkg: grunt.file.readJSON(&#x27;package.json&#x27;),
-		qunit: {
-			all: {
-				options: {
-					urls: [
-						&#x27;http://127.0.0.1:9998/&#x27;,
-						&#x27;http://127.0.0.1:9998/amd.html&#x27;,
-						&#x27;http://127.0.0.1:9998/environment-with-amd-and-umd.html&#x27;,
-						&#x27;http://127.0.0.1:9998/encoding.html?integration_baseurl=http://127.0.0.1:9998/&#x27;
-					]
-				}
-			},
-		},
-		nodeunit: {
-			all: &#x27;test/node.js&#x27;
-		},
-		jshint: {
-			options: {
-				jshintrc: true
-			},
-			grunt: &#x27;Gruntfile.js&#x27;,
-			source: &#x27;src/**/*.js&#x27;,
-			tests: [&#x27;test/**/*.js&#x27;, &#x27;!test/polyfill.js&#x27;]
-		},
-		jscs: {
-			options: {
-				requireCommaBeforeLineBreak: true,
-				requireLineFeedAtFileEnd: true,
-				requireSemicolons: true,
-				requireSpaceBeforeKeywords: [&#x27;else&#x27;, &#x27;while&#x27;, &#x27;catch&#x27;],
-				requireSpaceAfterKeywords: true,
-				requireSpaceAfterLineComment: true,
-				requireSpaceBeforeBlockStatements: true,
-				requireSpaceBeforeObjectValues: true,
-				validateIndentation: &#x27;\t&#x27;,
-				validateLineBreaks: &#x27;LF&#x27;,
-				validateQuoteMarks: true,
-				disallowSpacesInsideArrayBrackets: &#x27;all&#x27;,
-				disallowSpacesInsideParentheses: true,
-				disallowTrailingWhitespace: true
-			},
-			grunt: &#x27;Gruntfile.js&#x27;,
-			source: &#x27;src/**/*.js&#x27;,
-			tests: [&#x27;test/**/*.js&#x27;, &#x27;!test/polyfill.js&#x27;]
-		},
-		uglify: {
-			options: {
-				compress: {
-					unsafe: true
-				},
-				screwIE8: false,
-				banner: &#x27;/*! &#x3c;%= pkg.name %&#x3e; v&#x3c;%= pkg.version %&#x3e; | &#x3c;%= pkg.license %&#x3e; */\n&#x27;
-			},
-			build: {
-				files: {
-					&#x27;build/js.cookie.min.js&#x27;: &#x27;src/js.cookie.js&#x27;,
-					&#x27;build/js.cookie-&#x3c;%= pkg.version %&#x3e;.min.js&#x27;: &#x27;src/js.cookie.js&#x27;
-				}
+    <li>description and source-code<pre class="apidocCodePre">function api(key, value, attributes) {
+			var result;
+			if (typeof document === &#x27;undefined&#x27;) {
+				return;
 			}
-		},
-		watch: {
-			options: {
-				livereload: true
-			},
-			files: &#x27;{src,test}/**/*.js&#x27;,
-			tasks: &#x27;default&#x27;
-		},
-		compare_size: {
-			files: [
-				&#x27;build/js.cookie-&#x3c;%= pkg.version %&#x3e;.min.js&#x27;,
-				&#x27;src/js.cookie.js&#x27;
-			],
-			options: {
-				compress: {
-					gz: function (fileContents) {
-						return require(&#x27;gzip-js&#x27;).zip(fileContents, {}).length;
-					}
+
+			// Write
+
+			if (arguments.length &#x3e; 1) {
+				attributes = extend({
+					path: &#x27;/&#x27;
+				}, api.defaults, attributes);
+
+				if (typeof attributes.expires === &#x27;number&#x27;) {
+					var expires = new Date();
+					expires.setMilliseconds(expires.getMilliseconds() + attributes.expires * 864e+5);
+					attributes.expires = expires;
 				}
+
+				// We&#x27;re using &#x22;expires&#x22; because &#x22;max-age&#x22; is not supported by IE
+				attributes.expires = attributes.expires ? attributes.expires.toUTCString() : &#x27;&#x27;;
+
+				try {
+					result = JSON.stringify(value);
+					if (/^[\{\[]/.test(result)) {
+						value = result;
+					}
+				} catch (e) {}
+
+				if (!converter.write) {
+					value = encodeURIComponent(String(value))
+						.replace(/%(23|24|26|2B|3A|3C|3E|3D|2F|3F|40|5B|5D|5E|60|7B|7D|7C)/g, decodeURIComponent);
+				} else {
+					value = converter.write(value, key);
+				}
+
+				key = encodeURIComponent(String(key));
+				key = key.replace(/%(23|24|26|2B|5E|60|7C)/g, decodeURIComponent);
+				key = key.replace(/[\(\)]/g, escape);
+
+				var stringifiedAttributes = &#x27;&#x27;;
+
+				for (var attributeName in attributes) {
+					if (!attributes[attributeName]) {
+						continue;
+					}
+					stringifiedAttributes += &#x27;; &#x27; + attributeName;
+					if (attributes[attributeName] === true) {
+						continue;
+					}
+					stringifiedAttributes += &#x27;=&#x27; + attributes[attributeName];
+				}
+				return (document.cookie = key + &#x27;=&#x27; + value + stringifiedAttributes);
 			}
-		},
-		connect: {
-			&#x27;build-qunit&#x27;: {
-				options: {
-					port: 9998,
-					base: [&#x27;.&#x27;, &#x27;test&#x27;],
-					middleware: function (connect, options, middlewares) {
-						middlewares.unshift(encodingMiddleware);
-						return middlewares;
-					}
-				}
-			},
-			&#x27;build-sauce&#x27;: {
-				options: {
-					port: 9999,
-					base: [&#x27;.&#x27;, &#x27;test&#x27;]
-				}
-			},
-			tests: {
-				options: {
-					port: 10000,
-					base: [&#x27;.&#x27;, &#x27;test&#x27;],
-					open: &#x27;http://127.0.0.1:10000&#x27;,
-					keepalive: true,
-					livereload: true,
-					middleware: function (connect, options, middlewares) {
-						middlewares.unshift(encodingMiddleware);
-						return middlewares;
-					}
-				}
+
+			// Read
+
+			if (!key) {
+				result = {};
 			}
-		},
-		&#x27;saucelabs-qunit&#x27;: {
-			all: {
-				options: {
-					urls: [&#x27;http://127.0.0.1:9999&#x27;],
-					testname: &#x27;Sauce Test for js-cookie&#x27;,
-					build: process.env.TRAVIS_JOB_ID,
-					pollInterval: 10000,
-					statusCheckAttempts: 90,
-					throttled: 3,
-					browsers: (function () {
-						var browsers = {
-							&#x27;iOS&#x27;: [{
-								browserName: &#x27;iphone&#x27;,
-								platform: &#x27;OS X 10.10&#x27;,
-								version: &#x27;8.2&#x27;,
-								deviceName: &#x27;iPhone Simulator&#x27;
-							}, {
-								browserName: &#x27;iphone&#x27;,
-								platform: &#x27;OS X 10.10&#x27;,
-								version: &#x27;8.2&#x27;,
-								deviceName: &#x27;iPad Simulator&#x27;
-							}],
-							&#x27;android&#x27;: [{
-								browserName: &#x27;android&#x27;,
-								platform: &#x27;Linux&#x27;,
-								version: &#x27;5.1&#x27;,
-								deviceName: &#x27;Android Emulator&#x27;
-							}],
-							&#x27;mac&#x27;: [{
-								browserName: &#x27;safari&#x27;,
-								platform: &#x27;OS X 10.10&#x27;,
-								version: &#x27;8.0&#x27;
-							}, {
-								browserName: &#x27;firefox&#x27;,
-								platform: &#x27;OS X 10.10&#x27;,
-								version: &#x27;36.0&#x27;
-							}, {
-								browserName: &#x27;chrome&#x27;,
-								platform: &#x27;OS X 10.10&#x27;,
-								versiono: &#x27;41.0&#x27;
-							}] ...</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+
+			// To prevent the for loop in the first place assign an empty array
+			// in case there are no cookies at all. Also prevents odd result when
+			// calling &#x22;get()&#x22;
+			var cookies = document.cookie ? document.cookie.split(&#x27;; &#x27;) : [];
+			var rdecode = /(%[0-9A-Z]{2})+/g;
+			var i = 0;
+
+			for (; i &#x3c; cookies.length; i++) {
+				var parts = cookies[i].split(&#x27;=&#x27;);
+				var cookie = parts.slice(1).join(&#x27;=&#x27;);
+
+				if (cookie.charAt(0) === &#x27;&#x22;&#x27;) {
+					cookie = cookie.slice(1, -1);
+				}
+
+				try {
+					var name = parts[0].replace(rdecode, decodeURIComponent);
+					cookie = converter.read ?
+						converter.read(cookie, name) : converter(cookie, name) ||
+						cookie.replace(rdecode, decodeURIComponent);
+
+					if (this.json) {
+						try {
+							cookie = JSON.parse(cookie);
+						} catch (e) {}
+					}
+
+					if (key === name) {
+						result = cookie;
+						break;
+					}
+
+					if (!key) {
+						result[name] = cookie;
+					}
+				} catch (e) {}
+			}
+
+			return result;
+		}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+JavaScript Cookie can also be loaded as an AMD, CommonJS or [ES6](https://github.com/js-cookie/js-cookie/issues/233#issuecomment
+-233187386) module.
+
+## Basic Usage
+
+Create a cookie, valid across the entire site:
+
+```javascript
+Cookies.<span class="apidocCodeKeywordSpan">set</span>(&#x27;name&#x27;, &#x27;value&#x27;);
+```
+
+Create a cookie that expires 7 days from now, valid across the entire site:
+
+```javascript
+Cookies.set(&#x27;name&#x27;, &#x27;value&#x27;, { expires: 7 });
+```
+...</pre></li>
     </ul>
 
 
-</div>
-
-<div class="apidocSectionDiv">
-<h1><a href="#apidoc.module.js-cookie.get" id="apidoc.module.js-cookie.get">module js-cookie.get</a></h1>
-
 
     <h2>
-        <a href="#apidoc.element.js-cookie.get.get" id="apidoc.element.js-cookie.get.get">
-        function <span class="apidocSignatureSpan">js-cookie.</span>get
+        <a href="#apidoc.element.js-cookie.set.get" id="apidoc.element.js-cookie.set.get">
+        function <span class="apidocSignatureSpan">js-cookie.set.</span>get
         <span class="apidocSignatureSpan">(key)</span>
         </a>
     </h2>
@@ -1150,15 +845,10 @@ Cookies.get(); // =&#x3e; { name: &#x27;value&#x27; }
     </ul>
 
 
-</div>
-
-<div class="apidocSectionDiv">
-<h1><a href="#apidoc.module.js-cookie.getJSON" id="apidoc.module.js-cookie.getJSON">module js-cookie.getJSON</a></h1>
-
 
     <h2>
-        <a href="#apidoc.element.js-cookie.getJSON.getJSON" id="apidoc.element.js-cookie.getJSON.getJSON">
-        function <span class="apidocSignatureSpan">js-cookie.</span>getJSON
+        <a href="#apidoc.element.js-cookie.set.getJSON" id="apidoc.element.js-cookie.set.getJSON">
+        function <span class="apidocSignatureSpan">js-cookie.set.</span>getJSON
         <span class="apidocSignatureSpan">()</span>
         </a>
     </h2>
@@ -1190,15 +880,10 @@ Cookies.getJSON(); // =&#x3e; { name: { foo: &#x27;bar&#x27; } }
     </ul>
 
 
-</div>
-
-<div class="apidocSectionDiv">
-<h1><a href="#apidoc.module.js-cookie.remove" id="apidoc.module.js-cookie.remove">module js-cookie.remove</a></h1>
-
 
     <h2>
-        <a href="#apidoc.element.js-cookie.remove.remove" id="apidoc.element.js-cookie.remove.remove">
-        function <span class="apidocSignatureSpan">js-cookie.</span>remove
+        <a href="#apidoc.element.js-cookie.set.remove" id="apidoc.element.js-cookie.set.remove">
+        function <span class="apidocSignatureSpan">js-cookie.set.</span>remove
         <span class="apidocSignatureSpan">(key, attributes)</span>
         </a>
     </h2>
@@ -1228,33 +913,10 @@ Cookies.remove(&#x27;name&#x27;); // fail!
     </ul>
 
 
-</div>
-
-<div class="apidocSectionDiv">
-<h1><a href="#apidoc.module.js-cookie.toString" id="apidoc.module.js-cookie.toString">module js-cookie.toString</a></h1>
-
 
     <h2>
-        <a href="#apidoc.element.js-cookie.toString.toString" id="apidoc.element.js-cookie.toString.toString">
-        function <span class="apidocSignatureSpan">js-cookie.</span>toString
-        <span class="apidocSignatureSpan">()</span>
-        </a>
-    </h2>
-    <ul>
-    <li>description and source-code<pre class="apidocCodePre">function toString() { [native code] }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
-    </ul>
-
-
-</div>
-
-<div class="apidocSectionDiv">
-<h1><a href="#apidoc.module.js-cookie.withConverter" id="apidoc.module.js-cookie.withConverter">module js-cookie.withConverter</a></h1>
-
-
-    <h2>
-        <a href="#apidoc.element.js-cookie.withConverter.withConverter" id="apidoc.element.js-cookie.withConverter.withConverter">
-        function <span class="apidocSignatureSpan">js-cookie.</span>withConverter
+        <a href="#apidoc.element.js-cookie.set.withConverter" id="apidoc.element.js-cookie.set.withConverter">
+        function <span class="apidocSignatureSpan">js-cookie.set.</span>withConverter
         <span class="apidocSignatureSpan">(converter)</span>
         </a>
     </h2>
@@ -1401,6 +1063,8 @@ cookies.get(&#x27;default&#x27;); // 北
 cookies.get(); // { escaped: &#x27;北&#x27;, default: &#x27;北&#x27; }
 ...</pre></li>
     </ul>
+
+
 
 
 </div>
